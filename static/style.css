@@ -84,3 +84,19 @@ header a:hover {
     font-size: 14px;
   }
 }
+
+.intro {
+    text-align: center;
+    color: white;
+    margin-top: 6cm; /* yozuvni 6 sm pastga tushiradi */
+    margin-left: 3cm;
+}
+
+
+/* mobil qurilmalarda avtomatik moslashsin */
+@media (max-width: 768px) {
+    .intro {
+        margin-top: 4cm;
+    }
+}
+
