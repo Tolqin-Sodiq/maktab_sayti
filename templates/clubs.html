@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>To‘garaklar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            color: white;
+            text-align: center;
+            background-image: url("/static/images/clubs-bg.jpg"); /* <-- Fon rasmi yo‘li */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Yarim shaffof qatlam */
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding-top: 60px; /* 🔼 avval 120px edi, 3 sm atrofida yuqoriga ko‘tarildi */
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background-color: rgba(255, 215, 0, 0.85); /* oltin rang */
+            color: black;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255, 215, 0, 1);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="content">
+        <h2>Bizning maktabda o‘quvchilar uchun ijodiy, sport va texnologik yo‘nalishdagi to‘garaklar faoliyat yuritadi.</h2>
+        <p></p>
+        <a href="/" class="back-btn">🏠 Bosh sahifaga qaytish</a>
+    </div>
+</body>
+</html>
