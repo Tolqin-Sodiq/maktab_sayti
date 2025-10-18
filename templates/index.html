@@ -3,35 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bosh sahifa</title>
+    <title>Innovatsion xususiy maktab</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body style="background-image: url('{{ url_for('static', filename='images/fon.jpg') }}'); background-size: cover;">
-
-<!-- Yagona menyu (header) -->
-<div style="
-    background-color:#007BFF;
-    padding:12px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    font-family:Arial,sans-serif;">
-    
-    <a href="/" style="color:white; text-decoration:none; font-weight:bold;">🏠 Bosh sahifa</a>
-    <a href="/about" style="color:white; text-decoration:none; font-weight:bold;">Biz haqimizda</a>
-    <a href="/news" style="color:white; text-decoration:none; font-weight:bold;">Yangiliklar</a>
-    <a href="/clubs" style="color:white; text-decoration:none; font-weight:bold;">To‘garaklar</a>
-    <a href="/register" style="color:white; text-decoration:none; font-weight:bold;">Ro‘yxatdan o‘tish</a>
-    <a href="/aloqa" style="color:white; text-decoration:none; font-weight:bold;">Aloqa</a>
-</div>
-
-    
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Bosh sahifa</a></li>
+                <li><a href="{{ url_for('about') }}">Biz haqimizda</a></li>
+                <li><a href="{{ url_for('clubs') }}">To‘garaklar</a></li>
+                <li><a href="{{ url_for('aloqa') }}">Aloqa</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="intro">
-	<a style="color:blue;"</a>
-        <h1>“Innivatsion xususiy maktab”</h1>
-        <p>O‘rgan, ijod qil, kashf et - kelajak seni kutmoqda!<br>
-Fikrni harakatga aylantir - dunyo o‘zgaradi!<br>Texnologiya orzudan boshlanadi, mehnat bilan kamol topadi.</p>
+        <h1>“Innovatsion xususiy maktab”</h1>
+        <p>
+            O‘rgan, ijod qil, kashf et — kelajak seni kutmoqda!<br>
+            Fikrni harakatga aylantir — dunyo o‘zgaradi!<br>
+            Texnologiya orzudan boshlanadi, mehnat bilan kamol topadi.
+        </p>
     </div>
+
+    <footer>
+        <p>&copy; {{ current_year }} Innovatsion maktab. Barcha huquqlar himoyalangan.</p>
+    </footer>
 </body>
 </html>

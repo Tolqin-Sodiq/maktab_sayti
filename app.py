@@ -8,22 +8,22 @@ app = Flask(__name__)
 # 🔹 Bosh sahifa
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', current_year=datetime.now().year)
 
 # 🔹 Biz haqimizda
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', current_year=datetime.now().year)
 
 # 🔹 To‘garaklar
 @app.route('/clubs')
 def clubs():
-    return render_template('clubs.html')
+    return render_template('clubs.html', current_year=datetime.now().year)
 
 # 🔹 Aloqa sahifasi
 @app.route('/aloqa')
 def aloqa():
-    return render_template('aloqa.html')
+    return render_template('aloqa.html', current_year=datetime.now().year)
 
 # 🔹 Ro‘yxatdan o‘tish sahifasi
 @app.route('/register', methods=['GET', 'POST'])
@@ -153,6 +153,13 @@ def admin():
             return "<h3>Ma'lumotlar fayli hali yaratilmagan.</h3>"
     except Exception as e:
         return f"<h3>Xatolik: {str(e)}</h3>"
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
