@@ -1,34 +1,26 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovatsion xususiy maktab</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <ul>
-                <li><a href="{{ url_for('home') }}">Bosh sahifa</a></li>
-                <li><a href="{{ url_for('about') }}">Biz haqimizda</a></li>
-                <li><a href="{{ url_for('clubs') }}">To‘garaklar</a></li>
-                <li><a href="{{ url_for('aloqa') }}">Aloqa</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends "base.html" %}
+{% block title %}Bosh sahifa{% endblock %}
 
-    <div class="intro">
-        <h1>“Innovatsion xususiy maktab”</h1>
-        <p>
-            O‘rgan, ijod qil, kashf et — kelajak seni kutmoqda!<br>
-            Fikrni harakatga aylantir — dunyo o‘zgaradi!<br>
-            Texnologiya orzudan boshlanadi, mehnat bilan kamol topadi.
-        </p>
-    </div>
+{% block content %}
+<div class="content-box">
+    <h1>“Kiberto School”ga xush kelibsiz!</h1>
+    <p>
+        Bizning maktab – bolalar tafakkurini, iqtidorini va kreativ fikrlashini 
+        rivojlantirishga qaratilgan innovatsion ta’lim maskani. 
+        Har bir o‘quvchimiz o‘z iste’dodini kashf etish va uni 
+        hayotda qo‘llash imkoniyatiga ega bo‘ladi.
+    </p>
 
-    <footer>
-        <p>&copy; {{ current_year }} Innovatsion maktab. Barcha huquqlar himoyalangan.</p>
-    </footer>
-</body>
-</html>
+    <p>
+        Dasturlash, robototexnika, san’at, sport va xorijiy tillarni o‘rgatish orqali 
+        zamonaviy avlodni tarbiyalash – bizning maqsadimiz.
+    </p>
+
+    <img src="{{ url_for('static', filename='images/school.jpg') }}" 
+         alt="Kiberto School maktabi" class="page-image">
+
+    <p style="text-align: center;">
+        <a href="{{ url_for('about') }}" class="btn">Biz haqimizda batafsil</a>
+    </p>
+</div>
+{% endblock %}

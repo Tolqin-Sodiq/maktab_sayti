@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Aloqa{% endblock %}
+
+{% block content %}
+<div class="content-box">
+    <h1>Biz bilan aloqa</h1>
+    <p>Quyidagi manzillar orqali biz bilan bog‘lanishingiz mumkin:</p>
+
+    <div class="contact-info">
+        <p><strong>Manzil:</strong> Toshkent shahri, Uchtepa tumani, Taqachi 32</p>
+        <p><strong>Telefon:</strong> +998 (95) 550-00-48</p>
+        <p><strong>Email:</strong> info@maktab.uz</p>
+    </div>
+
+    <h2>Bizga xabar yuboring</h2>
+
+    {% if success %}
+    <div class="success-message" id="successMessage">
+        ✅ Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog‘lanamiz.
+    </div>
+    {% endif %}
+
+    <form class="contact-form" method="post" action="/contact">
+        <label for="place">Maktab joylashgan joy ma‘qulmi?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="place" value="Ha" required> Ha, juda qulay</label>
+            <label><input type="radio" name="place" value="Yo‘q"> Yo‘q, unchalik emas</label>
+        </div>
+        <hr>
+
+        <label for="age">Farzandingiz nechchi yoshda?</label>
+        <input type="number" id="age" name="age" min="6" max="18" placeholder="Masalan: 12" required>
+
+        <label for="name">Ismi-sharifingiz:</label>
+        <input type="text" id="name" name="name" placeholder="Ismi-sharifingizni kiriting" required>
+
+        <label for="phone">Telefon raqamingiz:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+998 (__) ___-__-__" required>
+
+        <label for="message">Savol yoki takliflaringiz:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Savol yoki takliflaringizni yozing..." required></textarea>
+
+        <button type="submit">Yuborish</button>
+    </form>
+
+    <img src="{{ url_for('static', filename='images/contact.jpg') }}" alt="Aloqa rasmi" class="page-image">
+</div>
+
+<!-- ✅ Muvaffaqiyat xabarini 4 soniyadan so‘ng avtomatik yo‘qotish -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const msg = document.getElementById("successMessage");
+        if (msg) {
+            setTimeout(() => {
+                msg.style.opacity = "0";
+                setTimeout(() => msg.remove(), 500); // butunlay olib tashlash
+            }, 4000); // 4 soniyadan keyin so‘nadi
+        }
+    });
+</script>
+{% endblock %}

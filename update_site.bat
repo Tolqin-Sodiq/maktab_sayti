@@ -1,22 +1,33 @@
 @echo off
-echo ======================================
-echo   MAKTAB SAYTI YANGILASH DASTURI
-echo ======================================
-cd /d D:\maktab_sayti
-
+echo ==========================================
+echo   🚀 Saytni Render'ga yuklash jarayoni
+echo ==========================================
 echo.
-echo >>> O'zgarishlar GitHub'ga tayyorlanmoqda...
+
+:: 1. Loyiha fayllarini qo'shish
 git add .
+echo ✅ Fayllar qo'shildi.
 
-echo.
-set /p msg=Commit izohini kiriting (masalan: style.css yangilandi): 
-git commit -m "%msg%"
+:: 2. Commit yozuvi (sana va vaqt bilan)
+for /f "tokens=1-4 delims=/ " %%a in ('date /t') do set DATE=%%a-%%b-%%c
+for /f "tokens=1-2 delims=: " %%a in ('time /t') do set TIME=%%a-%%b
+git commit -m "Avtomatik yangilanish: %DATE% %TIME%"
+echo ✅ Commit yaratildi.
 
-echo.
-echo >>> GitHub bilan sinxronlashmoqda...
-git branch -M main
-git push -u origin main
+:: 3. O'zgarishlarni GitHub'ga yuborish
+git push origin main
+if %errorlevel% neq 0 (
+    echo ❌ Xatolik: Git push bajarilmadi.
+    pause
+    exit /b
+)
+echo ✅ Render yangilanishni boshladi.
 
+:: 4. Render loglarini kuzatish
 echo.
-echo ✅ Sayt muvaffaqiyatli yangilandi!
+echo ==========================================
+echo   🔍 Render loglarini ko'rish uchun:
+echo   https://render.com/dashboard
+echo ==========================================
+echo.
 pause

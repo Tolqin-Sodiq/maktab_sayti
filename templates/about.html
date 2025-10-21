@@ -1,61 +1,25 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biz haqimizda</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body style="background-image: url('{{ url_for('static', filename='images/fon.jpg') }}'); background-size: cover; background-attachment: fixed;">
+{% extends "base.html" %}
+{% block title %}Biz haqimizda{% endblock %}
 
-<!-- Yagona menyu (header) -->
-<div style="
-    background-color:#007BFF;
-    padding:12px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    font-family:Arial,sans-serif;">
-    
-    <a href="/" style="color:white; text-decoration:none; font-weight:bold;">🏠 Bosh sahifa</a>
-    <a href="/about" style="color:white; text-decoration:none; font-weight:bold;">Biz haqimizda</a>
-    <a href="/news" style="color:white; text-decoration:none; font-weight:bold;">Yangiliklar</a>
-    <a href="/clubs" style="color:white; text-decoration:none; font-weight:bold;">To‘garaklar</a>
-    <a href="/register" style="color:white; text-decoration:none; font-weight:bold;">Ro‘yxatdan o‘tish</a>
-    <a href="/aloqa" style="color:white; text-decoration:none; font-weight:bold;">Aloqa</a>
+{% block content %}
+<div class="content-box">
+    <h1>Biz haqimizda</h1>
+    <p>
+        “Kiberto School” – zamonaviy texnologiyalar, ijod va intellektual rivojlanishni uyg‘unlashtirgan 
+        xususiy ta’lim maskani. Biz o‘quvchilarga nafaqat darslikdagi bilimlarni, balki hayotiy ko‘nikmalarni 
+        ham berishni o‘z oldimizga maqsad qilganmiz.
+    </p>
+
+    <p>
+        Bizning jamoamiz malakali o‘qituvchilar, IT mutaxassislari va innovatsion fikrlovchi yosh rahbarlardan tashkil topgan.  
+        Har bir bola bu yerda o‘z iqtidorini sinab ko‘radi va rivojlantiradi.
+    </p>
+
+    <img src="{{ url_for('static', filename='images/team.jpg') }}" 
+         alt="Kiberto School jamoasi" class="page-image">
+
+    <p style="text-align: center;">
+        <a href="{{ url_for('clubs') }}" class="btn">To‘garaklar bilan tanishing</a>
+    </p>
 </div>
-
-    
-    
-    <div class="content-box">
-        <h1>Biz haqimizda</h1>
-        <p>
-            Maktabimiz — zamonaviy ta’lim va an’anaviy qadriyatlarni uyg‘unlashtirgan o‘quv maskani.
-            Biz o‘quvchilarni nafaqat bilimli, balki mustaqil fikrlaydigan, mas’uliyatli va ijodkor shaxs sifatida tarbiyalaymiz.
-        </p>
-        <p>
-            O‘qituvchilar jamoamiz o‘z ishining ustalari bo‘lib, har bir bola uchun alohida yondashuvni afzal ko‘radi.
-            O‘quv jarayonida yangi pedagogik texnologiyalar, interaktiv uslublar va raqamli resurslardan foydalaniladi.
-        </p>
-
-        <div class="mission">
-            <h2>Missiyamiz</h2>
-            <p>
-                Har bir o‘quvchiga o‘z iste’dodini ro‘yobga chiqarish imkonini berish,
-                bilim va tarbiyani uyg‘un holda berish.
-            </p>
-        </div>
-
-        <div class="vision">
-            <h2>Kelajakdagi maqsadlarimiz</h2>
-            <ul>
-                <li>Yuqori sifatli ta’lim orqali yetuk avlodni tarbiyalash;</li>
-                <li>Innovatsion texnologiyalarni ta’lim jarayoniga joriy etish;</li>
-                <li>Ota-onalar va o‘qituvchilar hamkorligini kuchaytirish;</li>
-                <li>Milliy qadriyatlar asosida barkamol insonni shakllantirish.</li>
-            </ul>
-        </div>
-    </div>
-
-</body>
-</html>
+{% endblock %}
