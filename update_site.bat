@@ -1,33 +1,56 @@
 @echo off
+REM ==========================================
+REM  MAKTAB SAYTI UPDATE SCRIPT (Render bilan)
+REM ==========================================
+
 echo ==========================================
-echo   🚀 Saytni Render'ga yuklash jarayoni
+echo   MAKTAB SAYTI — UPDATE VA DEPLOY BOSHLANDI
 echo ==========================================
 echo.
 
-:: 1. Loyiha fayllarini qo'shish
+REM --- 1. Git repositoryni yangilash ---
 git add .
-echo ✅ Fayllar qo'shildi.
-
-:: 2. Commit yozuvi (sana va vaqt bilan)
-for /f "tokens=1-4 delims=/ " %%a in ('date /t') do set DATE=%%a-%%b-%%c
-for /f "tokens=1-2 delims=: " %%a in ('time /t') do set TIME=%%a-%%b
-git commit -m "Avtomatik yangilanish: %DATE% %TIME%"
-echo ✅ Commit yaratildi.
-
-:: 3. O'zgarishlarni GitHub'ga yuborish
+git commit -m "Auto update from update_site.bat"
 git push origin main
+
 if %errorlevel% neq 0 (
-    echo ❌ Xatolik: Git push bajarilmadi.
+    echo ❌ Git pushda xato yuz berdi. Iltimos, tarmoqni tekshiring.
     pause
     exit /b
 )
-echo ✅ Render yangilanishni boshladi.
 
-:: 4. Render loglarini kuzatish
 echo.
-echo ==========================================
-echo   🔍 Render loglarini ko'rish uchun:
-echo   https://render.com/dashboard
-echo ==========================================
+echo ✅ GitHub’ga o‘zgarishlar muvaffaqiyatli push qilindi.
 echo.
+
+REM --- 2. Render API orqali majburiy rebuild ---
+REM Quyidagi joyga Render loyihangizga mos API token va service ID ni yozing
+set RENDER_API_KEY=rnd_nqgSyGHTxTTVTlt983Gctdd2YLz0
+set RENDER_SERVICE_ID=srv-d3p6s5re5dus738hfll0
+
+echo 🔄 Render’da yangi build ishga tushirilmoqda...
+curl -X POST "https://api.render.com/v1/services/%RENDER_SERVICE_ID%/deploys" ^
+     -H "Accept: application/json" ^
+     -H "Authorization: Bearer %RENDER_API_KEY%" ^
+     -H "Content-Type: application/json" ^
+     -d "{}"
+
+if %errorlevel% neq 0 (
+    echo ❌ Render buildni chaqirishda xato.
+    pause
+    exit /b
+)
+
+echo ✅ Render’da yangi build muvaffaqiyatli ishga tushirildi.
+echo.
+
+REM --- 3. So‘nggi loglarni olish ---
+echo 🕓 Loglar yuklanmoqda (so‘nggi 20 qatordan)...
+curl -s -H "Authorization: Bearer %RENDER_API_KEY%" ^
+     "https://api.render.com/v1/services/%RENDER_SERVICE_ID%/logs?tail=true&limit=20"
+
+echo.
+echo ✅ Tugadi. Saytingiz bir necha daqiqa ichida yangilanadi.
+echo.
+
 pause
