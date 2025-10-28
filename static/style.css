@@ -9,7 +9,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width:800px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -48,9 +48,11 @@ header {
     transition: color 0.3s;
 }
 
+
 .menu li a:hover {
     color: #ffd700;
 }
+
 
 /* === FOOTER === */
 footer {

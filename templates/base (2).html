@@ -11,12 +11,10 @@
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
             background: linear-gradient(to bottom right, #003366, #66a6ff);
-	    color: #f9f9f9;
+            color: #f9f9f9;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-
-	
         }
 
         /* Navigatsiya paneli */
@@ -68,18 +66,16 @@
             color: #ffd700;
         }
 
-
-
         /* Asosiy kontent maydoni */
         main {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 60px 30px;
+            padding: 40px 20px;
         }
 
-        /*.content-box {
+        .content-box {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             padding: 30px 40px;
@@ -87,7 +83,7 @@
             width: 100%;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             color: #fff;
-        }*/
+        }
 
         .content-box h1, .content-box h2 {
             color: #ffeb99;
@@ -99,7 +95,7 @@
 
         .page-image {
             width: 100%;
-            max-width: cover;
+            max-width: 700px;
             display: block;
             margin: 20px auto;
             border-radius: 10px;
@@ -150,7 +146,6 @@
             </ul>
         </nav>
     </header>
-
 
     <main>
         {% block content %}{% endblock %}
