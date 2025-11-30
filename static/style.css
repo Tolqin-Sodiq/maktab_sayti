@@ -1,199 +1,220 @@
-/* === HEADER / NAVBAR === */
-header {
-    background: linear-gradient(to right, #004080, #0073e6);
-    color: white;
-    padding: 10px 0;
-}
-
-.navbar {
+/* --- HERO CONTAINER --- */
+.hero-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width:800px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
+    height: 85vh;
 }
 
-/* LOGO VA MATN */
-.logo-section {
+/* --- CHAP BLOK (school.jpg) --- */
+.hero-left {
+    width: 50%;
+}
+
+.left-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- O‘NG BLOK --- */
+.hero-right {
+    width: 50%;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
 }
 
-.logo {
-    height: 45px;
-    width: auto;
+/* --- FUTURE.JPG BLOKI --- */
+.future-container {
+    position: relative;
+    width: 100%;
+    height:100%;
+    overflow: hidden;
 }
 
-.site-title {
-    font-size: 18px;
-    font-weight: 600;
-    white-space: nowrap;
+.future-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* MENYU */
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-
-.menu li a:hover {
-    color: #ffd700;
-}
-
-
-/* === FOOTER === */
-footer {
-    background-color: #003366;
-    color: white;
+/* --- FUTURE.JPG USTIDAGI YOZUV --- */
+.future-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    padding: 12px 0;
-    font-size: 14px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.70);
 }
 
-/* --- Radio tugmalar uchun qo‘shimcha dizayn --- */
-.radio-group {
-display: flex;
-flex-direction: column;
-gap: 8px;
-margin: 8px 0 16px 0;
+.future-text h1 {
+    font-size: 45px;
+    font-weight: 800;
+    margin: 0;
 }
 
-.radio-group label {
-display: flex;
-align-items: center;
-background: rgba(255, 255, 255, 0.15);
-padding: 10px 14px;
-border-radius: 10px;
-transition: all 0.3s ease;
-cursor: pointer;
-font-size: 1rem;
+.future-text p {
+    font-size: 22px;
+    margin: 6px 0 0;
 }
 
-.radio-group label:hover {
-background: rgba(255, 255, 255, 0.3);
+.future-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(
+        to top,
+        rgba(10, 30, 80, 0.85),    /* Past — chuqur ko‘k */
+        rgba(20, 60, 130, 0.55),   /* O‘rtada — maktab moviyi */
+        rgba(20, 60, 130, 0.25),
+        transparent
+    );
+    pointer-events: none;
 }
 
-.radio-group input[type="radio"] {
-appearance: none;
-width: 18px;
-height: 18px;
-margin-right: 10px;
-border: 2px solid #007bff;
-border-radius: 50%;
-outline: none;
-transition: background 0.3s ease;
+
+/* --- VIDEO BO‘LIMI --- */
+.video-section {
+    height: 80%;
+    padding: 5px;
+    background: #f5f7fa;
 }
 
-.radio-group input[type="radio"]:checked {
-background: #007bff;
-box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+.video-section iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
-.btn {
-    background-color: #ffcc00;
-    color: #003366;
-    padding: 10px 20px;
+
+/* 🔵 Ro‘yxatdan o‘tish bo‘limi */
+.register-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 28px;
+    border-radius: 16px;
+    margin: 40px auto 0 auto;
+    text-align: center;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+}
+
+.register-box h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0b1f4e;
+    margin-bottom: 12px;
+}
+
+.register-box p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.register-btn2 {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #1a5bcd, #0f3a8a);
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 10px;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-.btn:hover {
-    background-color: #ffd633;
-    transform: scale(1.05);
+    font-weight: 600;
+    transition: 0.25s ease;
 }
 
-/* 🎯 Radio tugmalar uchun dizayn */
-input[type="radio"] {
-    accent-color: #007bff; /* Tugma rangi (to‘q ko‘k) */
-    transform: scale(1.3); /* Hajmini kattalashtiradi */
-    margin-right: 8px;
-    cursor: pointer;
+.register-btn2:hover {
+    background: linear-gradient(135deg, #0f3a8a, #06245c);
+    transform: translateY(-3px);
 }
 
-/* Tugma va matn orasini joylashtirish */
-label[for="place"] {
-    display: block;
-    font-weight: bold;
+/* 🔵 Animatsiya */
+.animated-box {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUp 0.9s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🧑‍🤝‍🧑 Ikonka */
+.register-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* 🔵 Ro‘yxatdan o‘tish bo‘limi */
+.register-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    padding: 32px;
+    border-radius: 18px;
+    margin: 40px auto 0 auto;
+    text-align: left;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+}
+
+.register-box h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0b1f4e;
     margin-bottom: 10px;
 }
 
-/* Radio tugmalarni yonma-yon joylashtirish */
-.radio-group {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 15px;
-    align-items: center;
+.register-sub {
+    color: #444;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
-/* Har bir radio variant uchun matnni chiroyliroq */
-.radio-option {
-    font-size: 1rem;
+.why-us {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.why-us li {
+    padding: 6px 0;
+    font-size: 15px;
     color: #333;
     display: flex;
     align-items: center;
 }
 
-/* ✅ Muvaffaqiyatli yuborish xabari */
-.success-message {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-}
-
-/* ✅ Radio tugmalarni yirik va chiroyli qilish */
-.radio-group label {
+/* 🔵 Tugma */
+.register-btn2 {
     display: inline-block;
-    margin-right: 20px;
-    font-size: 1.1em;
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    background: linear-gradient(135deg, #1a5bcd, #0f3a8a);
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s ease;
 }
 
-.radio-group input[type="radio"] {
-    transform: scale(1.3);
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-/* ✅ Avtomatik so‘nuvchi muvaffaqiyat xabari uchun */
-.success-message {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.5s ease; /* silliq so‘nish animatsiyasi */
-}
-
-/* Radio tugmalar */
-.radio-group label {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 1.1em;
-}
-
-.radio-group input[type="radio"] {
-    transform: scale(1.3);
-    margin-right: 5px;
-    cursor: pointer;
+.register-btn2:hover {
+    background: linear-gradient(135deg, #0f3a8a, #06245c);
+    transform: translateY(-3px);
 }

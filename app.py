@@ -9,6 +9,13 @@ app = Flask(__name__)
 def index():
     return render_template('index.html', year=datetime.now().year)
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # Bu yerda sizning ma’lumotlarni Excelga yozish kodingiz bo‘ladi
+        pass
+    return render_template('register.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html', year=datetime.now().year)
