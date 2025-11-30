@@ -1,68 +1,61 @@
 {% extends "base.html" %}
+{% block title %}Bosh sahifa{% endblock %}
+
 {% block content %}
 
-<div class="hero-container">
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-container">
 
-    <!-- CHAP BLOK -->
+    <!-- CHAP — Maktab surati -->
     <div class="hero-left">
-        <img src="/static/images/school.jpg" alt="School" class="left-image">
+        <img src="{{ url_for('static', filename='images/school.jpg') }}" alt="Maktab binosi">
     </div>
 
-    <!-- O‘NG BLOK -->
+    <!-- O‘NG — Future + Sarlavha -->
     <div class="hero-right">
+        <div class="hero-overlay"></div>
+        <img src="{{ url_for('static', filename='images/future.jpg') }}" class="future-image" alt="Kelajak tasviri">
 
-        <!-- FUTURE.JPG fon rasmi -->
-        <div class="future-container">
-    <img src="/static/images/future.jpg" alt="Future" class="future-image">
-
-    <!-- Gradient overlay -->
-    <div class="future-gradient"></div>
-
-    <!-- Yozuv -->
-    <div class="future-text">
-        <h1>Kiberto School - </h1>
-        <h1>Kelajak maktabi</h1>
+        <div class="hero-title">
+            <h1>Kiberto School</h1>
+            <p>Kelajak maktabi</p>
+        </div>
     </div>
-</div>
+
+</section>
 
 
-        <!-- VIDEO LAVHA BO‘LIMI -->
-        <div class="video-section">
-            <iframe width="100%" height="240" 
-                src="https://www.youtube.com/embed/VIDEO_ID"
-		URL="https://youtu.be/ZY1HkrB9rpQ"
-                title="YouTube video player" frameborder="0"
+
+<!-- ===== VIDEO + KONTENT BLOKI ===== -->
+<section class="info-section">
+
+    <div class="info-left">
+        <h2>Nega aynan biz?</h2>
+
+        <ul class="why-list">
+            <li>📘 Zamonaviy STEAM o‘quv dasturi</li>
+            <li>🤖 Robototexnika va IT fanlari</li>
+            <li>🎨 San’at, dizayn va kreativ to‘garaklar</li>
+            <li>🏆 Sport va mental rivojlanish mashg‘ulotlari</li>
+            <li>👨‍🏫 Yuqori malakali ustozlar</li>
+        </ul>
+
+        <a href="{{ url_for('register') }}" class="register-btn">
+            Ro‘yxatdan o‘tish
+        </a>
+    </div>
+
+    <div class="info-right">
+        <div class="video-box">
+            <iframe
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                title="Introduction Video"
+                frameborder="0"
                 allowfullscreen>
             </iframe>
         </div>
-
-<!-- 🔵 Ro‘yxatdan o‘tish bo‘limi — animatsiya, ikonka, bulletlar bilan -->
-<div class="register-box animated-box">
-    <div class="register-icon">
-        🧑‍🤝‍🧑
     </div>
 
-    <h2>Farzandingiz uchun eng to‘g‘ri tanlov!</h2>
-
-    <p class="register-sub">
-        Kiberto School — zamonaviy, xavfsiz va innovatsion ta’lim muhitini taklif qiladi.
-    </p>
-
-    <ul class="why-us">
-        <li>🔹 Robototexnika, IT, 3D dizayn darslari</li>
-        <li>🔹 Xavfsiz va zamonaviy maktab binosi</li>
-        <li>🔹 Malakali o‘qituvchilar va kichik sinflar</li>
-        <li>🔹 Sport, san’at va til o‘rgatish to‘garaklari</li>
-    </ul>
-
-    <a href="{{ url_for('register') }}" class="register-btn2">Ro‘yxatdan o‘tish</a>
-</div>
-
-
-
-
-    </div>
-
-</div>
+</section>
 
 {% endblock %}
